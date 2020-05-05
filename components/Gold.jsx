@@ -5,9 +5,24 @@ export default function Gold({ setThePlan }) {
   const [loading, setLoading] = useState(false);
   const setGoldPlan = () => {
     setLoading(true);
+    //The axios request will be made here
+    // Axios.post(
+    //     url,
+    //     { plan: 'Gold'}
+    //   )
+    //     .then(result => {
+    //         // setLoading(false);
+    //          setThePlan("Gold")
+    //     })
+    //     .catch(error => {
+    //         // setLoading(false);
+
+    //      //on error
+    //     });
+
     setTimeout(
       () => setThePlan("Gold"),
-      10,
+      2000,
       () => setLoading(false)
     );
   };

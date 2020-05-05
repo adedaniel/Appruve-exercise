@@ -5,9 +5,10 @@ export default function Silver({ setThePlan }) {
   const [loading, setLoading] = useState(false);
   const setSilverPlan = () => {
     setLoading(true);
+    //The axios request will be made here
     setTimeout(
       () => setThePlan("Silver"),
-      10,
+      2000,
       () => setLoading(false)
     );
   };
