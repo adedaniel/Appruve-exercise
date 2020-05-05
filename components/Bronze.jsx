@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { BronzeImage } from "./Images";
-
+import { planApi } from "../functions/SubmitPlan";
 export default function Bronze({ setThePlan }) {
   const [loading, setLoading] = useState(false);
   const setBronzePlan = () => {
     setLoading(true);
     //The axios request will be made here
-    setTimeout(
-      () => setThePlan("Bronze"),
-      2000,
-      () => setLoading(false)
-    );
+    planApi.postRequest().then((response) => {
+      setTimeout(
+        () => setThePlan("Bronze"),
+        2000,
+        () => setLoading(false)
+      );
+    });
   };
   return (
     <div className="col-md-4">

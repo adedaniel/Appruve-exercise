@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { SilverImage } from "./Images";
+import { planApi } from "../functions/SubmitPlan";
 
 export default function Silver({ setThePlan }) {
   const [loading, setLoading] = useState(false);
+
   const setSilverPlan = () => {
     setLoading(true);
     //The axios request will be made here
-    setTimeout(
-      () => setThePlan("Silver"),
-      2000,
-      () => setLoading(false)
-    );
+    planApi.postRequest().then((response) => {
+      setTimeout(
+        () => setThePlan("Silver"),
+        2000,
+        () => setLoading(false)
+      );
+    });
   };
   return (
     <div className="col-md-4">

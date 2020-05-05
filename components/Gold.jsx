@@ -1,30 +1,19 @@
 import React, { useState } from "react";
 import { GoldImage } from "./Images";
+import { planApi } from "../functions/SubmitPlan";
 
 export default function Gold({ setThePlan }) {
   const [loading, setLoading] = useState(false);
   const setGoldPlan = () => {
     setLoading(true);
     //The axios request will be made here
-    // Axios.post(
-    //     url,
-    //     { plan: 'Gold'}
-    //   )
-    //     .then(result => {
-    //         // setLoading(false);
-    //          setThePlan("Gold")
-    //     })
-    //     .catch(error => {
-    //         // setLoading(false);
-
-    //      //on error
-    //     });
-
-    setTimeout(
-      () => setThePlan("Gold"),
-      2000,
-      () => setLoading(false)
-    );
+    planApi.postRequest().then((response) => {
+      setTimeout(
+        () => setThePlan("Gold"),
+        2000,
+        () => setLoading(false)
+      );
+    });
   };
   return (
     <div className="col-md-4">
